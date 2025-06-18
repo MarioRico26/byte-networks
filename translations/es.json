@@ -1,0 +1,164 @@
+{
+  "nav_home": "Inicio",
+  "nav_about": "Nosotros",
+  "nav_services": "Servicios",
+  "nav_projects": "Proyectos",
+  "nav_contact": "Contacto",
+
+  "hero_title": "Tecnología inteligente para la vida y el trabajo",
+  "hero_subtitle": "Soluciones tecnológicas modernas para empresas y hogares.",
+
+  "about_title": "Nosotros",
+  "about_text": "Ofrecemos servicios de TI inteligentes, escalables y elegantes que empoderan a las organizaciones para crecer con confianza. Nuestro equipo combina experiencia tecnológica con un enfoque humano para ofrecer soluciones de alto impacto.",
+  "about_item1": "Continuidad del negocio y transformación digital",
+  "about_item2": "Arquitectura IT experta y planificación de infraestructura",
+  "about_item3": "Consultoría enfocada en seguridad y escalabilidad",
+
+  "services_title": "Servicios",
+  "service1": "Desarrollo Web",
+  "service2": "Software a Medida",
+  "service3": "Sistemas de Audio",
+  "service4": "Redes y Wi-Fi",
+  "service5": "Consultoría IT",
+  "service6": "Reparaciones e Instalaciones",
+
+  "contact_title": "Contáctenos",
+
+  "projects_title": "Proyectos",
+  "project1_title": "Automatización del Hogar",
+  "project1_desc": "Automatización completa del hogar con WiFi, iluminación, seguridad y control climático.",
+  "project2_title": "Configuración de Punto de Venta",
+  "project2_desc": "Implementación de sistema de inventario y facturación con Clover, QuickBooks, etc.",
+  "project3_title": "Audio Multi-Zona",
+  "project3_desc": "Solución de audio personalizada basada en Sonos para hogares y negocios.",
+
+  "custom_hero_title": "Software a Medida",
+  "custom_hero_subtitle": "Soluciones diseñadas para sus necesidades únicas.",
+
+  "custom_intro_title": "Qué Desarrollamos",
+  "custom_intro_text": "Desarrollamos soluciones de software a medida para resolver problemas del mundo real. Desde herramientas internas para empresas hasta plataformas para clientes, lo hacemos todo.",
+
+  "custom_tech_stack": "Nuestro Stack Tecnológico",
+  "custom_tech_text": "Nos especializamos en desarrollo full-stack con tecnologías como Node.js, Python, .NET y Java. Nuestras soluciones frontend usan React, Vue o Angular.",
+
+  "custom_db": "Bases de Datos",
+  "custom_db_text": "Somos expertos en bases de datos relacionales y no relacionales: SQL Server, Oracle, MySQL, PostgreSQL y MongoDB.",
+
+  "custom_bi": "Inteligencia de Negocios",
+  "custom_bi_text": "Integramos herramientas de análisis de datos e inteligencia de negocios como Power BI, Tableau y dashboards personalizados para tomar decisiones informadas.",
+
+  "custom_arch": "Arquitectura Empresarial",
+  "custom_arch_text": "Liderados por arquitectos empresariales con experiencia, garantizamos escalabilidad, rendimiento y seguridad en todas las soluciones de software.",
+
+  "custom_integrations": "Integraciones y APIs",
+  "custom_integrations_text": "Conectamos tus sistemas usando APIs REST y GraphQL, integrando con plataformas como Salesforce, QuickBooks y Microsoft 365.",
+
+  "custom_security": "Seguridad desde el Diseño",
+  "custom_security_text": "La seguridad se integra desde el inicio, incluyendo cifrado de datos, autenticación segura y control de acceso.",
+
+  "custom_features": "Otras Capacidades",
+  "feature1": "Desarrollo de apps para escritorio y móviles multiplataforma",
+  "feature2": "Modernización de sistemas heredados",
+  "feature3": "Apps nativas en la nube con AWS, Azure y GCP",
+  "feature4": "ERPs y CRMs personalizados",
+  "feature5": "Automatización de flujos de trabajo e integraciones",
+
+  "custom_logos_title": "Tecnologías que Utilizamos",
+  "custom_logos_subtitle": "Somos expertos en una amplia gama de tecnologías:",
+
+"audio_title": "Sistemas de Audio",
+"audio_subtitle": "Experiencias de audio inteligentes y fluidas para cada habitación y entorno.",
+"audio_intro_title": "Zonas de Audio Inteligentes",
+"audio_intro_text": "Nos especializamos en instalaciones de audio multizona usando sistemas como Sonos, Yamaha MusicCast y Denon HEOS. Controla cada zona de forma independiente o sincronízalas para un audio envolvente en todo el hogar.",
+"audio_wireless": "Inalámbrico y Centralizado",
+"audio_wireless_text": "Desde parlantes de techo hasta barras de sonido de alta gama, integramos soluciones inalámbricas que se adaptan a tu espacio y se conectan por Wi-Fi, Ethernet o hubs.",
+"audio_control": "Control por Voz y App",
+"audio_control_text": "Todos los sistemas se pueden controlar por aplicaciones o asistentes de voz como Alexa, Google Assistant y Siri.",
+"audio_custom": "Instalaciones Personalizadas",
+"audio_custom_text": "Ofrecemos configuraciones a medida para interiores/exteriores, espacios comerciales y salas de entretenimiento, asegurando calidad y estética.",
+"audio_integration": "Integración de Sistemas",
+"audio_integration_text": "Los sistemas de audio se integran con tu red, plataforma de automatización y dispositivos móviles para un control unificado.",
+"audio_support": "Soporte Completo",
+"audio_support_text": "Desde planificación y cableado hasta pruebas y configuración de apps, ofrecemos servicio completo, incluyendo upgrades y mantenimiento.",
+"audio_brands_title": "Algunas Marcas y Tecnologías que Usamos",
+
+"net_title": "Redes y Wi-Fi",
+"net_subtitle": "Infraestructura de red avanzada, cobertura Wi-Fi y seguridad, diseñadas para velocidad y resiliencia.",
+"net_intro_title": "Soluciones de Nivel Empresarial",
+"net_intro_text": "Diseñamos e implementamos sistemas de red de nivel empresarial, asegurando estabilidad, escalabilidad y rendimiento. Nuestro cableado estructurado y distribución de equipos siguen las mejores prácticas para centros de datos y negocios de todos los tamaños.",
+"net_firewall": "Firewall y Seguridad",
+"net_firewall_text": "Implementamos soluciones robustas de firewall y UTM para proteger su negocio de amenazas externas, con marcas como Cisco, Fortinet y SonicWall.",
+"net_wifi": "Wi-Fi para Cualquier Escala",
+"net_wifi_text": "Desde redes residenciales en malla hasta puntos de acceso comerciales con roaming continuo y segmentación VLAN, personalizamos cada configuración según sus necesidades.",
+"net_monitoring": "Monitoreo y Soporte",
+"net_monitoring_text": "Nuestro monitoreo remoto y soporte proactivo garantizan disponibilidad y rápida resolución de problemas con herramientas como PRTG y Zabbix.",
+"net_phones": "Telefonía IP y Comunicación",
+"net_phones_text": "Configuramos sistemas VoIP/IP-PBX con tecnologías de Cisco, Avaya y Grandstream, habilitando comunicaciones unificadas e integración SIP.",
+"net_special": "Proyectos Especiales",
+"net_special_text": "También brindamos servicios para puentes inalámbricos, Wi-Fi exterior, redes POS e invitados con cumplimiento completo y portales cautivos.",
+"net_logos_title": "Tecnologías que Utilizamos",
+
+  "it_title": "Consultoría en TI",
+  "it_subtitle": "Asesoría experta para impulsar la transformación digital y la excelencia operativa.",
+  
+  "it_intro_title": "Estrategia Inteligente en TI",
+  "it_intro_text": "Ayudamos a las empresas a definir, ejecutar y optimizar su hoja de ruta tecnológica: desde adopción de la nube hasta modernización de software, ciberseguridad y automatización.",
+  
+  "it_tools": "Herramientas y Plataformas",
+  "it_tools_text": "Contamos con experiencia práctica en DocuWare, NAF, JDE E1, Salesforce, QuickBooks, Clover, Microsoft 365 y otras herramientas empresariales clave.",
+  
+  "it_finance": "Perspectiva Financiera y Operativa",
+  "it_finance_text": "Apoyamos a las organizaciones con reportes, presupuestos, análisis de P&L y auditorías de sistemas para decisiones basadas en datos.",
+  
+  "it_certifications": "Certificaciones y Alianzas",
+  "it_cert1": "Consultores certificados en Microsoft y AWS",
+  "it_cert2": "Alianzas con QuickBooks, Salesforce y DocuWare",
+  "it_cert3": "Experiencia en licitaciones gubernamentales y corporativas",
+  
+  "it_projects": "Tipos de Proyectos",
+  "it_proj1": "Implementaciones de ERP y CRM",
+  "it_proj2": "Evaluaciones de TI y auditorías de cumplimiento",
+  "it_proj3": "Estrategia de transformación digital",
+  "it_proj4": "Planes de continuidad del negocio",
+  
+  "it_benefits_title": "¿Por Qué Trabajar con Byte Networks?",
+  "it_benefit1": "🔍 Diagnósticos y recomendaciones claras",
+  "it_benefit2": "📊 Sólido entendimiento de datos y finanzas",
+  "it_benefit3": "🛠️ Planes personalizados para cualquier tamaño de empresa",
+  "it_benefit4": "🧩 Integración en toda tu infraestructura",
+  
+  "it_quote": "“Cerramos la brecha entre los objetivos de negocio y la ejecución tecnológica.”",
+  
+  "it_services_title": "Servicios de Consultoría Destacados",
+  "it_service1": "Estrategia Digital",
+  "it_service2": "Selección de Software",
+  "it_service3": "Automatización de Procesos",
+  "it_service4": "Decisiones Basadas en Datos",
+
+  "repairs_title": "Reparaciones e Instalaciones",
+  "repairs_subtitle": "Servicios técnicos expertos para hogares y empresas: rápidos, profesionales y confiables.",
+  
+  "repairs_services_title": "Nuestros Servicios",
+
+  "repair1": "Reparación de PC y Mac",
+  "repair1_text": "Solución de problemas de hardware y software, reemplazo de piezas, formateo y restauración de sistemas.",
+
+  "repair2": "Wi-Fi y Redes",
+  "repair2_text": "Instalación de redes domésticas y de oficina, configuración de routers y optimización de cobertura.",
+
+  "repair3": "Sistemas de Audio",
+  "repair3_text": "Instalación de altavoces interiores/exteriores, configuraciones multizona con Sonos y receptores AV.",
+
+  "repair4": "CCTV y Cámaras",
+  "repair4_text": "Configuración de cámaras de vigilancia, cableado, acceso móvil y monitoreo remoto.",
+
+  "repair5": "Instalación de Dispositivos",
+  "repair5_text": "Smart TVs, impresoras, NAS, almacenamiento en la nube, tablets y más — configurados y listos.",
+
+  "repair6": "Configuración de Seguridad",
+  "repair6_text": "Firewall, antivirus, controles de acceso y copias de seguridad — para tranquilidad y cumplimiento.",
+
+  "repairs_highlight_title": "Soporte Confiable para Cualquier Situación",
+  "repairs_highlight_text": "Desde la configuración de una pequeña oficina en casa hasta despliegues tecnológicos a gran escala, traemos las herramientas, el conocimiento y el cuidado para hacerlo bien — a la primera."
+
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Byte Networks</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">Byte Networks</div>
+      <nav>
+        <a data-key="nav_home" href="#home">Home</a>
+        <a data-key="nav_about" href="#about">About</a>
+        <a data-key="nav_services" href="#services">Services</a>
+        <a data-key="nav_projects" href="#projects">Projects</a>
+        <a data-key="nav_contact" href="#contact">Contact</a>
+        <button id="langToggle">ES</button>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <img src="assets/logo.png" alt="Logo" class="hero-logo large-centered-logo" />
+      <h1 data-key="hero_title">Smart Tech for Life and Work</h1>
+      <p data-key="hero_subtitle">Modern technology solutions for businesses and homes.</p>
+    </div>
+    <div class="scroll-down" onclick="scrollToSection('about')">↓</div>
+  </section>
+
+  <section id="about" data-aos="fade-up" class="section light">
+    <div class="split">
+      <div class="text">
+        <h2 data-key="about_title">About Us</h2>
+        <p data-key="about_text">
+          We provide smart, scalable and elegant IT services that empower organizations to grow with confidence.
+        </p>
+        <ul>
+          <li data-key="about_item1">Business continuity and digital transformation</li>
+          <li data-key="about_item2">Expert IT architecture and infrastructure planning</li>
+          <li data-key="about_item3">Consulting with a focus on security and scalability</li>
+        </ul>
+      </div>
+      <div class="media">
+        <div class="placeholder">About Image Placeholder</div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="services" data-aos="fade-up" class="section dark">
+    <h2 data-key="services_title">Services</h2>
+    <div class="services-grid">
+      <a href="web-development.html" class="card service-link">
+        <div class="icon-container">
+          <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" class="icon-img" />
+        </div>
+        <span class="service-label" data-key="service1">Web Development</span>
+      </a>
+      <a href="custom-software.html" class="card service-link">
+        <div class="icon-container">
+          <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" class="icon-img" />
+        </div>
+        <span class="service-label" data-key="service2">Custom Software</span>
+      </a>
+      <a href="audio-systems.html" class="card service-link">
+        <div class="icon-container">
+          <img src="https://cdn-icons-png.flaticon.com/512/727/727606.png" class="icon-img" />
+        </div>
+        <span class="service-label" data-key="service3">Audio Systems</span>
+      </a>
+
+      <a href="networking.html" class="card service-link">
+        <div class="icon-container">
+          <img src="https://cdn-icons-png.flaticon.com/512/3242/3242257.png" class="icon-img" />
+        </div>
+        <span class="service-label" data-key="service4">Networking & Wi-Fi</span>
+      </a>
+
+      <a href="it-consulting.html" class="card service-link">
+        <div class="icon-container">
+          <img src="https://cdn-icons-png.flaticon.com/512/1087/1087815.png" class="icon-img" />
+        </div>
+        <span class="service-label" data-key="service5">IT Consulting</span>
+      </a>
+
+      <a href="repairs-installations.html" class="card service-link">
+        <div class="icon-container">
+          <img src="https://cdn-icons-png.flaticon.com/512/4255/4255692.png" class="icon-img" />
+        </div>
+        <span class="service-label" data-key="service6">Repairs & Installations</span>
+      </a>
+  </section>
+
+  <section id="projects" class="section light projects-section" data-aos="fade-up">
+    <h2 class="section-title" data-key="projects_title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-icon">🏡</div>
+        <h3 class="project-title" data-key="project1_title">Smart Home Automation</h3>
+        <p class="project-desc" data-key="project1_desc">Complete home automation with WiFi, lighting, security, and climate control.</p>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="project-icon">🛒</div>
+        <h3 class="project-title" data-key="project2_title">Retail POS Setup</h3>
+        <p class="project-desc" data-key="project2_desc">Implementation of inventory and billing system with Clover, QuickBooks, Etc.</p>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="project-icon">🔊</div>
+        <h3 class="project-title" data-key="project3_title">Multi-Room Audio</h3>
+        <p class="project-desc" data-key="project3_desc">Custom Sonos-based audio solution for homes and businesses.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-up" class="section dark">
+    <h2 data-key="contact_title">Contact Us</h2>
+    <p>Email: <strong>info@bytenetworks.net</strong> | Tel: <strong>609-713-7333</strong></p>
+    <form class="form" action="https://formsubmit.co/info@bytenetworks.net" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+    
+      <!-- Ocultos -->
+      <input type="hidden" name="_subject" value="New Contact from ByteNetworks Website">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="thanks.html">
+    
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer><p>© 2025 Byte Networks</p></footer>
+
+  <div class="scroll-up" id="scrollUp" onclick="scrollToTop()">↑</div>
+
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init();
+    new Swiper('.swiper', {
+      loop: true,
+      pagination: { el: '.swiper-pagination' },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+    });
+
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', () => {
+      const scrollBtn = document.getElementById('scrollUp');
+      scrollBtn.style.display = window.scrollY > 100 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>

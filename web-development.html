@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Development - Byte Networks</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">Byte Networks</div>
+      <nav>
+        <a href="index.html#home" data-key="menu.home">Home</a>
+        <a href="index.html#about" data-key="menu.about">About</a>
+        <a href="index.html#services" data-key="menu.services">Services</a>
+        <a href="index.html#projects" data-key="menu.projects">Projects</a>
+        <a href="index.html#contact" data-key="menu.contact">Contact</a>
+        <button id="langToggle">ES</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section dark">
+    <h1 data-key="webdev_title" data-aos="fade-up">Web Development</h1>
+    <p data-key="webdev_intro" data-aos="fade-up" data-aos-delay="200">
+      We craft ultra-modern websites using cutting-edge technologies and expert enterprise architecture.
+    </p>
+
+    <div class="webdev-grid" style="margin-top: 3rem;">
+      <div class="card" data-aos="zoom-in">
+        <i data-lucide="code" class="icon"></i>
+        <h3 data-key="webdev_frontend">Frontend Tech</h3>
+        <p data-key="webdev_frontend_desc">HTML, CSS, JavaScript, React, Vite, Next.js, Tailwind CSS</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="100">
+        <i data-lucide="server-cog" class="icon"></i>
+        <h3 data-key="webdev_arch">Enterprise Architecture</h3>
+        <p data-key="webdev_arch_desc">Scalable, secure and flexible architectures for long-term growth</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="200">
+        <i data-lucide="smartphone" class="icon"></i>
+        <h3 data-key="webdev_ui">UI/UX Design</h3>
+        <p data-key="webdev_ui_desc">Minimalist, user-friendly interfaces with modern visual polish</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="300">
+        <i data-lucide="search-check" class="icon"></i>
+        <h3 data-key="webdev_seo">SEO & Performance</h3>
+        <p data-key="webdev_seo_desc">Fast loading speeds, best practices and search optimization</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="400">
+        <i data-lucide="shield-check" class="icon"></i>
+        <h3 data-key="webdev_security">Security & Standards</h3>
+        <p data-key="webdev_security_desc">Built with compliance, security and reliability in mind</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="500">
+        <i data-lucide="life-buoy" class="icon"></i>
+        <h3 data-key="webdev_support">Support & Scalability</h3>
+        <p data-key="webdev_support_desc">Ongoing updates, maintenance, and business growth in mind</p>
+      </div>
+    
+      <div class="card" data-aos="zoom-in" data-aos-delay="600">
+        <i data-lucide="database" class="icon"></i>
+        <h3 data-key="webdev_backend">Backend Development</h3>
+        <p data-key="webdev_backend_desc">Node.js, Express, APIs, SQL, PostgreSQL, MongoDB</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="700">
+        <i data-lucide="layers" class="icon"></i>
+        <h3 data-key="webdev_fullstack">Fullstack Solutions</h3>
+        <p data-key="webdev_fullstack_desc">Frontend + backend integration with scalable architecture</p>
+      </div>
+
+  </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Byte Networks</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    lucide.createIcons();
+
+    const translations = {
+      en: {
+        "menu.home": "Home",
+        "menu.about": "About",
+        "menu.services": "Services",
+        "menu.projects": "Projects",
+        "menu.contact": "Contact",
+        "webdev_title": "Web Development",
+        "webdev_intro": "We craft ultra-modern websites using cutting-edge technologies and expert enterprise architecture.",
+        "webdev_frontend": "Frontend Tech",
+        "webdev_frontend_desc": "HTML, CSS, JavaScript, React, Vite, Next.js, Tailwind CSS",
+        "webdev_arch": "Enterprise Architecture",
+        "webdev_arch_desc": "Scalable, secure and flexible architectures for long-term growth",
+        "webdev_ui": "UI/UX Design",
+        "webdev_ui_desc": "Minimalist, user-friendly interfaces with modern visual polish",
+        "webdev_seo": "SEO & Performance",
+        "webdev_seo_desc": "Fast loading speeds, best practices and search optimization",
+        "webdev_security": "Security & Standards",
+        "webdev_security_desc": "Built with compliance, security and reliability in mind",
+        "webdev_support": "Support & Scalability",
+        "webdev_support_desc": "Ongoing updates, maintenance, and business growth in mind","webdev_backend": "Backend Development",
+        "webdev_backend_desc": "Node.js, Express, APIs, SQL, PostgreSQL, MongoDB",
+        "webdev_fullstack": "Fullstack Solutions",
+        "webdev_fullstack_desc": "Frontend + backend integration with scalable architecture"
+      },
+      es: {
+        "menu.home": "Inicio",
+        "menu.about": "Nosotros",
+        "menu.services": "Servicios",
+        "menu.projects": "Proyectos",
+        "menu.contact": "Contacto",
+        "webdev_title": "Desarrollo Web",
+        "webdev_intro": "Creamos sitios web ultramodernos con tecnologías de vanguardia y arquitectura empresarial experta.",
+        "webdev_frontend": "Tecnologías Frontend",
+        "webdev_frontend_desc": "HTML, CSS, JavaScript, React, Vite, Next.js, Tailwind CSS",
+        "webdev_arch": "Arquitectura Empresarial",
+        "webdev_arch_desc": "Arquitecturas escalables, seguras y flexibles para el crecimiento a largo plazo",
+        "webdev_ui": "Diseño UI/UX",
+        "webdev_ui_desc": "Interfaces minimalistas, fáciles de usar, con acabado visual moderno",
+        "webdev_seo": "SEO y Rendimiento",
+        "webdev_seo_desc": "Velocidad de carga rápida, buenas prácticas y optimización en buscadores",
+        "webdev_security": "Seguridad y Estándares",
+        "webdev_security_desc": "Construido con cumplimiento, seguridad y confiabilidad en mente",
+        "webdev_support": "Soporte y Escalabilidad",
+        "webdev_support_desc": "Actualizaciones, mantenimiento y crecimiento del negocio continuo","webdev_backend": "Desarrollo Backend",
+        "webdev_backend_desc": "Node.js, Express, APIs, SQL, PostgreSQL, MongoDB",
+        "webdev_fullstack": "Soluciones Fullstack",
+        "webdev_fullstack_desc": "Integración frontend + backend con arquitectura escalable"
+      }
+    };
+
+    const toggleBtn = document.getElementById("langToggle");
+    let currentLang = "en";
+
+    function applyTranslations(lang) {
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        if (translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+    }
+
+    toggleBtn?.addEventListener("click", () => {
+      currentLang = currentLang === "en" ? "es" : "en";
+      toggleBtn.innerText = currentLang.toUpperCase() === "EN" ? "ES" : "EN";
+      applyTranslations(currentLang);
+    });
+
+    applyTranslations(currentLang);
+  </script>
+</body>
+</html>
