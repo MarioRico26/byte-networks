@@ -1,0 +1,20 @@
+{
+  "nav_home": "Home",
+  "nav_about": "About",
+  "nav_services": "Services",
+  "nav_projects": "Projects",
+  "nav_contact": "Contact",
+  "hero_title": "Smart Tech for Life and Work",
+  "hero_subtitle": "Modern technology solutions for businesses and homes.",
+  "about_title": "About Us",
+  "about_text": "We provide smart, scalable, and elegant IT services that empower organizations to grow with confidence. Our team combines technology expertise with a human-centric approach to deliver high-impact solutions.",
+  "services_title": "Services",
+  "service1": "Web Development",
+  "service2": "Custom Software",
+  "service3": "Audio Systems",
+  "service4": "Networking & Wi-Fi",
+  "service5": "IT Consulting",
+  "service6": "Repairs & Installations",
+  "projects_title": "Projects",
+  "contact_title": "Contact Us"
+}
