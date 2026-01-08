@@ -29,6 +29,7 @@ function renderHtml(b: Body) {
   `
 }
 
+// Usa envs, sin valores mágicos en producción:
 const MAIL_FROM = process.env.MAIL_FROM || 'Byte Networks <onboarding@resend.dev>'
 const MAIL_TO   = process.env.MAIL_TO   || 'info@bytenetworks.net'
 
@@ -45,13 +46,13 @@ export async function POST(req: Request) {
       return Response.json({ ok: false, error: 'Mail disabled' }, { status: 500 })
     }
 
-    // Instanciar AQUÍ, no en el toplevel
+    // Instancia dentro del handler para evitar problemas en build
     const resend = new Resend(key)
 
     const { data, error } = await resend.emails.send({
-      from: MAIL_FROM,
-      to: [MAIL_TO],
-      replyTo: body.email, // correcto en Resend (camelCase)
+      from: MAIL_FROM,            // p.ej. 'Byte Networks <info@bytenetworks.net>' (dominio verificado)
+      to: [MAIL_TO],              // destinatario final
+      replyTo: body.email,        // correcto en Resend (camelCase)
       subject: `New contact: ${body.name} (${body.service || 'General'})`,
       html: renderHtml(body),
       text: `
@@ -71,8 +72,9 @@ ${body.message}
     }
 
     return Response.json({ ok: true, id: data?.id })
-  } catch (err: any) {
-    console.error('CONTACT ERROR:', err?.message || err)
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error('CONTACT ERROR:', msg)
     return Response.json({ ok: false, error: 'Mail failed' }, { status: 500 })
   }
 }
