@@ -29,36 +29,40 @@ function renderHtml(b: Body) {
   `
 }
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-const MAIL_FROM = process.env.MAIL_FROM || 'info@bytenetworks.net'
+const MAIL_FROM = process.env.MAIL_FROM || 'Byte Networks <onboarding@resend.dev>'
 const MAIL_TO   = process.env.MAIL_TO   || 'info@bytenetworks.net'
 
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as Body
-
     if (!body?.name || !body?.email || !body?.message) {
       return Response.json({ ok: false, error: 'Missing required fields' }, { status: 400 })
     }
-    if (!process.env.RESEND_API_KEY || !MAIL_FROM || !MAIL_TO) {
-      return Response.json({ ok: false, error: 'Mail config missing' }, { status: 500 })
+
+    const key = process.env.RESEND_API_KEY
+    if (!key) {
+      console.error('RESEND_API_KEY is missing at runtime')
+      return Response.json({ ok: false, error: 'Mail disabled' }, { status: 500 })
     }
+
+    // Instanciar AQUÍ, no en el toplevel
+    const resend = new Resend(key)
 
     const { data, error } = await resend.emails.send({
       from: MAIL_FROM,
       to: [MAIL_TO],
-      replyTo: body.email, // ← corregido
+      replyTo: body.email, // correcto en Resend (camelCase)
       subject: `New contact: ${body.name} (${body.service || 'General'})`,
       html: renderHtml(body),
-      text: [
-        `Name: ${body.name}`,
-        `Email: ${body.email}`,
-        `Phone: ${body.phone || '-'}`,
-        `Company: ${body.company || '-'}`,
-        `Service: ${body.service || '-'}`,
-        '---',
-        body.message
-      ].join('\n')
+      text: `
+Name: ${body.name}
+Email: ${body.email}
+Phone: ${body.phone || '-'}
+Company: ${body.company || '-'}
+Service: ${body.service || '-'}
+---
+${body.message}
+      `.trim(),
     })
 
     if (error) {
