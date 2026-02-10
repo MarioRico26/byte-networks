@@ -1,0 +1,19 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1220" />
+      <stop offset="0.5" stop-color="#111B2E" />
+      <stop offset="1" stop-color="#0B1220" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g)" />
+  <rect x="60" y="60" width="1480" height="880" rx="36" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" />
+  <rect x="96" y="110" width="520" height="10" rx="5" fill="rgba(96,165,250,0.7)" />
+  <rect x="96" y="150" width="860" height="8" rx="4" fill="rgba(255,255,255,0.2)" />
+  <rect x="96" y="176" width="720" height="8" rx="4" fill="rgba(255,255,255,0.16)" />
+  <text x="96" y="260" fill="white" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="600">Byte Ledger - Metrics</text>
+  <text x="96" y="320" fill="rgba(255,255,255,0.7)" font-family="Inter, Arial, sans-serif" font-size="22">Replace with final screenshot</text>
+  <rect x="96" y="380" width="320" height="220" rx="18" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" />
+  <rect x="440" y="380" width="320" height="220" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" />
+  <rect x="784" y="380" width="320" height="220" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)" />
+</svg>

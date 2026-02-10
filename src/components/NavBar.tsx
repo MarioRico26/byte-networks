@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, Mail, PhoneCall } from 'lucide-react'
 
+const BYTE_LEDGER_URL = 'https://byteledger.bytenetworks.net'
+
 /** Pill con borde/shine reutilizable (estilo glass) */
 function GlassPill({
                        href,
@@ -93,7 +95,16 @@ export default function NavBar() {
                 {/* Nav principal */}
                 <nav className="hidden items-center gap-8 text-[15px] text-neutral-300 md:flex">
                     <a href="#services" className="hover:text-white">Services</a>
-                    <a href="#categories" className="hover:text-white">Categories</a>
+                    <a href="#systems" className="hover:text-white">Systems</a>
+                    <a href="#installations" className="hover:text-white">Installations</a>
+                    <a
+                        href={BYTE_LEDGER_URL}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center rounded-full border border-brand-300/40 bg-brand-500/15 px-3 py-1 text-brand-100 transition hover:bg-brand-500/25"
+                    >
+                        Byte Ledger
+                    </a>
                     <a href="#about" className="hover:text-white">About</a>
                     <a href="#contact" className="hover:text-white">Contact</a>
                 </nav>
@@ -123,7 +134,17 @@ export default function NavBar() {
                 <div className="border-t border-white/10 bg-neutral-950/85 backdrop-blur-md md:hidden">
                     <nav className="container-page flex flex-col gap-1 py-4 text-neutral-300">
                         <a href="#services" className="rounded-lg px-2 py-2 hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>Services</a>
-                        <a href="#categories" className="rounded-lg px-2 py-2 hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>Categories</a>
+                        <a href="#systems" className="rounded-lg px-2 py-2 hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>Systems</a>
+                        <a href="#installations" className="rounded-lg px-2 py-2 hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>Installations</a>
+                        <a
+                            href={BYTE_LEDGER_URL}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="rounded-lg border border-brand-300/30 bg-brand-500/10 px-2 py-2 text-brand-100 hover:bg-brand-500/20"
+                            onClick={() => setOpen(false)}
+                        >
+                            Byte Ledger
+                        </a>
                         <a href="#about" className="rounded-lg px-2 py-2 hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>About</a>
                         <a href="#contact" className="rounded-lg px-2 py-2 hover:bg-white/5 hover:text-white" onClick={() => setOpen(false)}>Contact</a>
 

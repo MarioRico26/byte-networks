@@ -1,0 +1,7 @@
+<svg width="320" height="96" viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="318" height="94" rx="14" stroke="#E5E7EB" stroke-opacity="0.35"/>
+  <circle cx="44" cy="48" r="22" fill="#E5E7EB" fill-opacity="0.12" stroke="#E5E7EB" stroke-opacity="0.6"/>
+  <path d="M34 60V36h5l5 9 5-9h5v24h-5V45l-5 9-5-9v15h-5Z" fill="#E5E7EB"/>
+  <text x="78" y="44" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="0.08em">MISSION</text>
+  <text x="78" y="64" fill="#E5E7EB" fill-opacity="0.9" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" letter-spacing="0.16em">CLEANING</text>
+</svg>

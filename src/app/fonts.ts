@@ -1,13 +1,19 @@
-import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
+import { Sora, Manrope, IBM_Plex_Mono } from 'next/font/google'
 
-export const fontDisplay = Plus_Jakarta_Sans({
-    subsets: ['latin'],
-    variable: '--font-display',
-    weight: ['500', '600', '700', '800'],
+export const fontDisplay = Sora({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['500', '600', '700'],
 })
 
-export const fontBody = Inter({
-    subsets: ['latin'],
-    variable: '--font-body',
-    weight: ['400', '500'],
+export const fontBody = Manrope({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['400', '500', '600'],
+})
+
+export const fontMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  weight: ['500'],
 })

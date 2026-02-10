@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import TextRotatorLux from './TextRotatorLux'
+import { PRIMARY_CTA, SECONDARY_CTA, CTA_STYLES } from '@/data/cta'
 
 const container = {
     hidden: { opacity: 0 },
@@ -68,17 +69,17 @@ export default function Hero() {
 
                 <motion.div variants={item} className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
                     <Link
-                        href="#contact"
-                        className="group relative overflow-hidden rounded-2xl bg-brand-500 px-6 py-3 text-base font-medium text-white shadow-soft-xl ring-1 ring-brand-400/30 transition hover:bg-brand-600"
+                        href={PRIMARY_CTA.href}
+                        className={CTA_STYLES.primary}
                     >
                         <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full before:content-['']" />
-                        <span className="relative">Start a project</span>
+                        <span className="relative">{PRIMARY_CTA.label}</span>
                     </Link>
                     <Link
-                        href="#services"
-                        className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-base font-medium text-white/90 backdrop-blur transition hover:bg-white/10"
+                        href={SECONDARY_CTA.href}
+                        className={CTA_STYLES.secondary}
                     >
-                        See services <span className="ml-2 inline-block align-middle"><ArrowRight className="h-4 w-4" /></span>
+                        {SECONDARY_CTA.label} <span className="ml-2 inline-block align-middle"><ArrowRight className="h-4 w-4" /></span>
                     </Link>
                 </motion.div>
 

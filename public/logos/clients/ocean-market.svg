@@ -1,0 +1,7 @@
+<svg width="320" height="96" viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="318" height="94" rx="14" stroke="#E5E7EB" stroke-opacity="0.35"/>
+  <circle cx="44" cy="48" r="22" fill="#E5E7EB" fill-opacity="0.12" stroke="#E5E7EB" stroke-opacity="0.6"/>
+  <path d="M44 61c-7 0-13-6-13-13s6-13 13-13 13 6 13 13-6 13-13 13Zm0-4c5 0 9-4 9-9s-4-9-9-9-9 4-9 9 4 9 9 9Z" fill="#E5E7EB"/>
+  <text x="78" y="44" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="0.08em">OCEAN INTL.</text>
+  <text x="78" y="64" fill="#E5E7EB" fill-opacity="0.9" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" letter-spacing="0.15em">MARKET</text>
+</svg>

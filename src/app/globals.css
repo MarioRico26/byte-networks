@@ -4,12 +4,22 @@
 
 :root {
     color-scheme: dark;
+    --bg-0: #070b14;
+    --bg-1: #0e1630;
+    --surface: #111c36;
+    --text: #f4f7ff;
+    --muted: #a7b4d0;
+    --accent: #4d8dff;
+    --accent-2: #f59e0b;
 }
 
 html, body, #__next { height: 100%; }
 
 body {
-    @apply bg-neutral-950 text-neutral-100 antialiased;
+    background-color: var(--bg-0);
+    color: var(--text);
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+    @apply antialiased;
 }
 
 /* Page container */
@@ -29,7 +39,7 @@ body {
 
 /* Animated background gradient */
 .bg-animate {
-    background: linear-gradient(120deg, #0B1220, #0A0F1C, #0B1220);
+    background: linear-gradient(120deg, var(--bg-1), var(--bg-0), var(--bg-1));
     background-size: 180% 180%;
     animation: gradientShift 10s ease infinite;
 }

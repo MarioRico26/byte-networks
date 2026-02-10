@@ -9,50 +9,49 @@ export default {
     theme: {
         extend: {
             colors: {
-                // NUEVA PALETA
                 brand: {
-                    50:  '#eff6ff',
-                    100: '#dbeafe',
-                    200: '#bfdbfe',
-                    300: '#93c5fd',
-                    400: '#60a5fa',
-                    500: '#3b82f6', // azul primario
-                    600: '#2563eb',
-                    700: '#1d4ed8',
-                    800: '#1e40af',
-                    900: '#1e3a8a',
+                    50:  '#eef5ff',
+                    100: '#dceafe',
+                    200: '#bfd6ff',
+                    300: '#95baff',
+                    400: '#6f9dff',
+                    500: '#3f6fcf',
+                    600: '#3575e6',
+                    700: '#285bc2',
+                    800: '#21499b',
+                    900: '#1c3c7a',
                 },
                 accent: {
-                    50:  '#fff7ed',
-                    100: '#ffedd5',
-                    200: '#fed7aa',
-                    300: '#fdba74',
-                    400: '#fb923c',
-                    500: '#f59e0b', // naranja
-                    600: '#ea580c',
-                    700: '#c2410c',
-                    800: '#9a3412',
-                    900: '#7c2d12',
+                    50:  '#fff8eb',
+                    100: '#feefcb',
+                    200: '#fcdd95',
+                    300: '#f9c45f',
+                    400: '#f7af36',
+                    500: '#f59e0b',
+                    600: '#de8605',
+                    700: '#b76606',
+                    800: '#944f0d',
+                    900: '#7a420f',
                 },
                 gold: {
                     300: '#fde68a',
-                    400: '#fbbf24', // amarillo
+                    400: '#fbbf24',
                     500: '#f59e0b',
                 },
             },
             fontFamily: {
-                display: ['var(--font-display)', 'ui-sans-serif', 'system-ui', 'Inter'],
-                body: ['var(--font-body)', 'Inter', 'system-ui', 'sans-serif'],
+                display: ['var(--font-display)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                body: ['var(--font-body)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
             },
             backgroundImage: {
                 'grid-radial':
-                    'radial-gradient(circle at center, rgba(255,255,255,0.08) 0, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.03) 60%, transparent 70%)',
-                // glow en azul + naranja
+                    'radial-gradient(circle at center, rgba(244,247,255,0.08) 0, rgba(244,247,255,0.05) 30%, rgba(244,247,255,0.02) 60%, transparent 72%)',
                 glow:
-                    'radial-gradient(60% 60% at 70% 20%, rgba(37,99,235,0.33) 0%, rgba(37,99,235,0) 70%), radial-gradient(45% 45% at 20% 80%, rgba(245,158,11,0.22) 0%, rgba(245,158,11,0) 60%)',
+                    'radial-gradient(56% 56% at 74% 16%, rgba(63,111,207,0.32) 0%, rgba(63,111,207,0) 72%), radial-gradient(44% 44% at 12% 88%, rgba(245,158,11,0.16) 0%, rgba(245,158,11,0) 66%), linear-gradient(180deg, #0e1630 0%, #070b14 64%)',
             },
             boxShadow: {
-                'soft-xl': '0 10px 40px -12px rgba(37, 99, 235, 0.35)',
+                'soft-xl': '0 18px 42px -22px rgba(63, 111, 207, 0.7)',
             },
         },
     },
