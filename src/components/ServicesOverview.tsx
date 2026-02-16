@@ -18,6 +18,7 @@ import {
     Gauge,
 } from 'lucide-react'
 import { SERVICES, type IconKey } from '@/data/services'
+import { type Locale } from '@/i18n/config'
 
 const ICONS: Record<IconKey, LucideIcon> = {
     Globe,
@@ -40,15 +41,47 @@ export default function ServicesOverview() {
 
 type ServicesOverviewProps = {
     tone?: 'dark' | 'light'
+    locale?: Locale
 }
 
-export function ServicesOverviewGrid({ tone = 'dark' }: ServicesOverviewProps) {
+const SERVICE_ES: Record<string, { title: string; blurb: string }> = {
+    'web-dev': {
+        title: 'Desarrollo Web',
+        blurb: 'Sitios web modernos, rápidos y optimizados para SEO construidos con Next.js y Tailwind.',
+    },
+    'custom-software': {
+        title: 'Software a Medida',
+        blurb: 'Portales, CRMs y flujos adaptados a la operación de tu empresa.',
+    },
+    'networking-wifi': {
+        title: 'Redes y Wi-Fi',
+        blurb: 'Infraestructura cableada e inalámbrica nivel empresarial con seguridad.',
+    },
+    'audio-systems': {
+        title: 'Sistemas de Audio',
+        blurb: 'Audio residencial y comercial, multi-zona y con instalaciones limpias.',
+    },
+    'it-consulting': {
+        title: 'Consultoría IT',
+        blurb: 'Arquitectura, seguridad y guía técnica para transformación digital.',
+    },
+    'repairs': {
+        title: 'Reparaciones e Instalaciones',
+        blurb: 'Soporte en sitio e instalaciones ordenadas para PCs, CCTV y más.',
+    },
+}
+
+export function ServicesOverviewGrid({ tone = 'dark', locale = 'en' }: ServicesOverviewProps) {
     const isLight = tone === 'light'
+    const learnMore = locale === 'es' ? 'Ver más' : 'Learn more'
 
     return (
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((svc, i) => {
                 const Icon = ICONS[svc.icon]
+                const translated = locale === 'es' ? SERVICE_ES[svc.slug] : null
+                const title = translated?.title ?? svc.title
+                const blurb = translated?.blurb ?? svc.blurb
                 return (
                     <motion.article
                         key={svc.slug}
@@ -59,11 +92,11 @@ export function ServicesOverviewGrid({ tone = 'dark' }: ServicesOverviewProps) {
                         className={`group relative overflow-hidden rounded-2xl p-6 backdrop-blur-md ${
                             isLight
                                 ? 'border border-slate-300/80 bg-white/88 shadow-[0_20px_40px_-30px_rgba(30,64,175,0.35)]'
-                                : 'border border-white/10 bg-[#10192f]'
+                                : 'border border-white/12 bg-[#10192f] shadow-[0_16px_30px_-24px_rgba(0,0,0,0.82)]'
                         }`}
                     >
                         {/* overlay que hace clickable toda la card */}
-                        <Link href={svc.href} className="absolute inset-0 z-10" aria-label={`Go to ${svc.title}`} />
+                        <Link href={svc.href} className="absolute inset-0 z-10" aria-label={`Go to ${title}`} />
 
                         <div
                             className={`pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 ${
@@ -77,9 +110,9 @@ export function ServicesOverviewGrid({ tone = 'dark' }: ServicesOverviewProps) {
                         >
                             <Icon className={`h-6 w-6 ${isLight ? 'text-brand-600' : 'text-brand-400'}`} />
                         </div>
-                        <h3 className={`text-base font-semibold ${isLight ? 'text-slate-900' : ''}`}>{svc.title}</h3>
+                        <h3 className={`text-lg font-semibold tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>{title}</h3>
                         <p className={`mt-2 max-w-[48ch] text-sm ${isLight ? 'text-slate-600' : 'text-slate-200'}`}>
-                            {svc.blurb}
+                            {blurb}
                         </p>
 
                         <div
@@ -87,7 +120,7 @@ export function ServicesOverviewGrid({ tone = 'dark' }: ServicesOverviewProps) {
                                 isLight ? 'text-brand-700 group-hover:text-brand-600' : 'text-brand-300 group-hover:text-brand-200'
                             }`}
                         >
-                            Learn more →
+                            {learnMore} →
                         </div>
                     </motion.article>
                 )

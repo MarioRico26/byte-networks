@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Camera, Music4, Store } from 'lucide-react'
-import { PRIMARY_CTA, SECONDARY_CTA, CTA_STYLES } from '@/data/cta'
+import { getCtas, CTA_STYLES } from '@/data/cta'
+import { type Locale } from '@/i18n/config'
 
 type InstallationCard = {
   title: string
@@ -21,7 +22,8 @@ type MotionProfile = {
   inactiveShiftY: number
 }
 
-const installationCards: InstallationCard[] = [
+const installationCards: Record<Locale, InstallationCard[]> = {
+  en: [
   {
     title: 'CCTV Systems',
     blurb: 'Secure camera installs with clean routing, calibration, and final client handoff.',
@@ -48,7 +50,49 @@ const installationCards: InstallationCard[] = [
     images: ['/screenshots/others/1.webp', '/screenshots/glimmerglass/4.webp', '/screenshots/glimmerglass/5.webp'],
     icon: Store,
   },
-]
+  ],
+  es: [
+    {
+      title: 'Sistemas CCTV',
+      blurb: 'Instalaciones de cámaras seguras con cableado limpio, calibración y entrega final al cliente.',
+      images: ['/screenshots/cameras/1.webp', '/screenshots/cameras/2.webp', '/screenshots/cameras/3.webp'],
+      icon: Camera,
+    },
+    {
+      title: 'Sistemas de Audio',
+      blurb: 'Implementaciones residenciales y comerciales con cableado ordenado y cobertura balanceada.',
+      images: [
+        '/screenshots/audio/1.webp',
+        '/screenshots/audio/2.webp',
+        '/screenshots/audio/3.webp',
+        '/screenshots/audio/4.webp',
+        '/screenshots/audio/5.webp',
+        '/screenshots/audio/6.webp',
+        '/screenshots/audio/7.webp',
+      ],
+      icon: Music4,
+    },
+    {
+      title: 'Kioscos Digitales',
+      blurb: 'Despliegues en sitio integrados con flujos de software para GlimmerGlass.',
+      images: ['/screenshots/others/1.webp', '/screenshots/glimmerglass/4.webp', '/screenshots/glimmerglass/5.webp'],
+      icon: Store,
+    },
+  ],
+}
+
+const COPY: Record<Locale, { badge: string; title: string; body: string }> = {
+  en: {
+    badge: 'Field Work',
+    title: 'Clean installations. Professional finish.',
+    body: 'Our on-site execution is part of the brand: clean cable management, documented setup, and reliable final delivery for CCTV, audio, and digital kiosks.',
+  },
+  es: {
+    badge: 'Trabajo en Campo',
+    title: 'Instalaciones limpias. Entrega profesional.',
+    body: 'Nuestra ejecución en sitio es parte de la marca: cableado ordenado, configuración documentada y entrega confiable en CCTV, audio y kioscos digitales.',
+  },
+}
 
 function useMotionProfile(): MotionProfile {
   const [isMobile, setIsMobile] = useState(false)
@@ -174,7 +218,7 @@ function RotatingInstallationCard({
   const Icon = card.icon
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md">
+    <article className="overflow-hidden rounded-2xl border border-white/12 bg-[#0f1933]/92 shadow-[0_16px_32px_-26px_rgba(0,0,0,0.85)]">
       <figure className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-neutral-950/80">
         <SmoothImageStack images={card.images} index={index} altPrefix={card.title} motion={motion} />
 
@@ -184,7 +228,7 @@ function RotatingInstallationCard({
         </div>
       </figure>
 
-      <div className="p-5">
+      <div className="p-5 md:p-6">
         <div className="mb-3 grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/10">
           <Icon className="h-5 w-5 text-brand-300" />
         </div>
@@ -210,11 +254,14 @@ function RotatingInstallationCard({
   )
 }
 
-export default function InstallationsShowcase() {
+export default function InstallationsShowcase({ locale = 'en' }: { locale?: Locale }) {
   const motion = useMotionProfile()
+  const ctas = getCtas(locale)
+  const cards = installationCards[locale]
+  const copy = COPY[locale]
 
   return (
-    <section id="installations" className="relative isolate py-24 scroll-mt-28">
+    <section id="installations" className="section-shell scroll-mt-28">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-20 top-16 -z-10 h-72 w-72 rounded-full bg-gradient-to-br from-cyan-400/20 via-brand-500/15 to-transparent blur-3xl"
@@ -223,25 +270,22 @@ export default function InstallationsShowcase() {
       <div className="container-page">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="text-xs uppercase tracking-[0.3em] text-brand-300/70">Field Work</div>
-            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">Clean installations. Professional finish.</h2>
-            <p className="mt-3 max-w-3xl text-neutral-300">
-              Our on-site execution is part of the brand: clean cable management, documented setup, and reliable final
-              delivery for CCTV, audio, and digital kiosks.
-            </p>
+            <div className="section-kicker">{copy.badge}</div>
+            <h2 className="section-title">{copy.title}</h2>
+            <p className="section-body text-neutral-300">{copy.body}</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Link href={PRIMARY_CTA.href} className={CTA_STYLES.primary}>
-              {PRIMARY_CTA.label}
+            <Link href={ctas.primary.href} className={CTA_STYLES.primary}>
+              {ctas.primary.label}
             </Link>
-            <Link href={SECONDARY_CTA.href} className={CTA_STYLES.secondary}>
-              {SECONDARY_CTA.label}
+            <Link href={ctas.secondary.href} className={CTA_STYLES.secondary}>
+              {ctas.secondary.label}
             </Link>
           </div>
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {installationCards.map((card, i) => (
+          {cards.map((card, i) => (
             <RotatingInstallationCard key={card.title} card={card} order={i} motion={motion} />
           ))}
         </div>

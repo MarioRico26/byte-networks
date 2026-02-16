@@ -14,7 +14,7 @@ export default function RibbonQuote({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.6 }}
-                className="bg-gradient-to-r from-amber-500 via-orange-500 to-brand-500"
+                className="bg-gradient-to-r from-brand-700 via-brand-600 to-brand-500"
             >
                 <div className="container-page py-10 text-center">
                     <blockquote className="text-balance text-2xl font-semibold leading-snug text-white md:text-3xl">

@@ -6,11 +6,11 @@
     color-scheme: dark;
     --bg-0: #070b14;
     --bg-1: #0e1630;
-    --surface: #111c36;
-    --text: #f4f7ff;
-    --muted: #a7b4d0;
-    --accent: #4d8dff;
-    --accent-2: #f59e0b;
+    --surface: #0f1930;
+    --text: #f2f6ff;
+    --muted: #b7c2d9;
+    --accent: #3f6fcf;
+    --accent-2: #3f6fcf;
 }
 
 html, body, #__next { height: 100%; }
@@ -29,7 +29,28 @@ body {
 
 /* Glassy cards */
 .card-glass {
-    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md;
+    @apply rounded-2xl border border-white/10 bg-white/[0.045] backdrop-blur-md;
+}
+
+.card-premium {
+    @apply rounded-2xl border border-white/10 bg-[#0e1830] shadow-soft;
+}
+
+.section-shell {
+    @apply relative isolate py-24 md:py-28;
+}
+
+.section-kicker {
+    @apply text-xs uppercase tracking-[0.28em] text-brand-300/70;
+}
+
+.section-title {
+    @apply mt-3 font-display text-3xl font-semibold tracking-tight text-white md:text-4xl;
+}
+
+.section-body {
+    @apply mt-4 max-w-3xl text-base leading-8;
+    color: var(--muted);
 }
 
 /* Soft shadow */

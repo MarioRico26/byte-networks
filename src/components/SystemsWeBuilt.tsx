@@ -4,8 +4,9 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight, Images as ImagesIcon, X, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react'
-import { PRIMARY_CTA, CTA_STYLES } from '@/data/cta'
+import { getCtas, CTA_STYLES } from '@/data/cta'
 import { PROJECTS, type Project } from '@/data/projects'
+import { type Locale } from '@/i18n/config'
 
 type LightboxState = { projectId: string; index: number }
 type MotionProfile = {
@@ -18,6 +19,90 @@ type MotionProfile = {
 }
 
 const isExternalUrl = (url: string) => url.startsWith('http')
+
+type ProjectTranslation = {
+  title?: string
+  tag?: string
+  blurb?: string
+  cta?: string
+  metrics?: { label: string; value: string; detail?: string }[]
+  highlights?: string[]
+}
+
+const SECTION_COPY: Record<Locale, { badge: string; title: string; body: string; openGallery: string; productSpotlight: string; liveNow: string; openFullGallery: string; visitProduct: string; viewProject: string }> = {
+  en: {
+    badge: 'Systems',
+    title: "Systems we've built",
+    body: 'Real products built for operations. Galleries rotate automatically with smooth transitions.',
+    openGallery: 'Open gallery of',
+    productSpotlight: 'Product spotlight',
+    liveNow: 'Byte Ledger is live in production and available now.',
+    openFullGallery: 'Open full gallery',
+    visitProduct: 'Visit product',
+    viewProject: 'View project',
+  },
+  es: {
+    badge: 'Sistemas',
+    title: 'Sistemas que hemos desarrollado',
+    body: 'Productos reales construidos para operación. Las galerías rotan automáticamente con transiciones suaves.',
+    openGallery: 'Abrir galería de',
+    productSpotlight: 'Producto destacado',
+    liveNow: 'Byte Ledger está en producción y disponible ahora.',
+    openFullGallery: 'Abrir galería completa',
+    visitProduct: 'Visitar producto',
+    viewProject: 'Ver proyecto',
+  },
+}
+
+const PROJECT_ES: Record<string, ProjectTranslation> = {
+  'byte-ledger': {
+    tag: 'Producto',
+    blurb: 'Nuestro primer producto comercial para operaciones, control de facturación y visibilidad financiera.',
+    cta: 'Visitar Byte Ledger',
+    metrics: [
+      { label: 'Cotizaciones y Facturas', value: 'Más rápido', detail: 'Ahorro de tiempo reportado por el propietario en la operación diaria.' },
+      { label: 'Pagos y Balances', value: 'Más claro', detail: 'Mayor control y visibilidad en seguimientos de cobro.' },
+      { label: 'Flujo General', value: 'Más organizado', detail: 'Reportes más limpios y ejecución más predecible para el cliente.' },
+    ],
+    highlights: [
+      'Unificación de trabajos, gastos y ciclo de facturación',
+      'Flujos de aprobación con historial de auditoría limpio',
+      'Dashboards en tiempo real para decisiones de negocio',
+    ],
+  },
+  glimmerglass: {
+    title: 'Sistema de Pedidos GlimmerGlass',
+    tag: 'Portal B2B',
+    blurb: 'Portal para distribuidores con timeline de estado, carga de medios y notificaciones.',
+  },
+  kline: {
+    title: 'Kline Task Manager',
+    tag: 'Operación / Campo',
+    blurb: 'Tareas por propiedad, adjuntos, alertas por correo y UX limpio para equipos de campo.',
+  },
+  mission: {
+    title: 'Mission Cleaning Company',
+    tag: 'Sitio Web',
+    blurb: 'Sitio moderno con servicios claros, captura de contactos y alto rendimiento.',
+  },
+}
+
+function localizeProjects(projects: Project[], locale: Locale): Project[] {
+  if (locale === 'en') return projects
+  return projects.map((project) => {
+    const tr = PROJECT_ES[project.id]
+    if (!tr) return project
+    return {
+      ...project,
+      title: tr.title ?? project.title,
+      tag: tr.tag ?? project.tag,
+      blurb: tr.blurb ?? project.blurb,
+      cta: tr.cta ?? project.cta,
+      metrics: tr.metrics ?? project.metrics,
+      highlights: tr.highlights ?? project.highlights,
+    }
+  })
+}
 
 function useMotionProfile(): MotionProfile {
   const [isMobile, setIsMobile] = useState(false)
@@ -143,9 +228,13 @@ function SmoothImageStack({
   )
 }
 
-export default function SystemsWeBuilt() {
+export default function SystemsWeBuilt({ locale = 'en' }: { locale?: Locale }) {
+  const ctas = getCtas(locale)
+  const copy = SECTION_COPY[locale]
+  const localizedProjects = useMemo(() => localizeProjects(PROJECTS, locale), [locale])
+
   return (
-    <section className="relative isolate py-24 md:py-28" id="systems">
+    <section className="section-shell" id="systems">
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 right-10 -z-10 h-80 w-80 rounded-full bg-gradient-to-br from-brand-500/24 via-brand-400/12 to-accent-500/12 blur-3xl"
@@ -154,24 +243,22 @@ export default function SystemsWeBuilt() {
       <div className="container-page">
         <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <div className="text-xs uppercase tracking-[0.3em] text-brand-300/70">Systems</div>
-            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">Systems we&apos;ve built</h2>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-neutral-100">
-              Real products built for operations. Galleries rotate automatically with smooth transitions.
-            </p>
+            <div className="section-kicker">{copy.badge}</div>
+            <h2 className="section-title">{copy.title}</h2>
+            <p className="section-body text-neutral-100">{copy.body}</p>
           </div>
-          <Link href={PRIMARY_CTA.href} className={CTA_STYLES.secondary}>
-            {PRIMARY_CTA.label} <ArrowUpRight className="h-4 w-4" />
+          <Link href={ctas.primary.href} className={CTA_STYLES.secondary}>
+            {ctas.primary.label} <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <ProjectGrid projects={PROJECTS} />
+        <ProjectGrid projects={localizedProjects} locale={locale} />
       </div>
     </section>
   )
 }
 
-function ProjectGrid({ projects }: { projects: Project[] }) {
+function ProjectGrid({ projects, locale }: { projects: Project[]; locale: Locale }) {
   const [lightbox, setLightbox] = useState<LightboxState | null>(null)
   const projectMap = useMemo(() => new Map(projects.map((p) => [p.id, p])), [projects])
   const featured = useMemo(() => projects.find((p) => p.featured), [projects])
@@ -230,11 +317,11 @@ function ProjectGrid({ projects }: { projects: Project[] }) {
 
   return (
     <>
-      {featured && <FeaturedProject project={featured} onOpenGallery={openLightbox} motion={motion} />}
+      {featured && <FeaturedProject project={featured} onOpenGallery={openLightbox} motion={motion} locale={locale} />}
 
-      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-11 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {list.map((p, order) => (
-          <ProjectCard key={p.id} project={p} order={order} onOpenGallery={openLightbox} motion={motion} />
+          <ProjectCard key={p.id} project={p} order={order} onOpenGallery={openLightbox} motion={motion} locale={locale} />
         ))}
       </div>
 
@@ -256,24 +343,28 @@ function FeaturedProject({
   project,
   onOpenGallery,
   motion,
+  locale,
 }: {
   project: Project
   onOpenGallery: (projectId: string, index: number) => void
   motion: MotionProfile
+  locale: Locale
 }) {
-  const ctaLabel = project.cta ?? 'Visit product'
+  const ctas = getCtas(locale)
+  const copy = SECTION_COPY[locale]
+  const ctaLabel = project.cta ?? copy.visitProduct
   const rotateMs = motion.isMobile ? 6900 : 9800
   const delayMs = motion.isMobile ? 1800 : 3200
   const { index, setIndex, pause, resume } = useAutoRotate(project.images.length, rotateMs, delayMs, motion.reducedMotion)
 
   return (
-    <article className="mt-12 overflow-hidden rounded-3xl border border-brand-300/22 bg-gradient-to-br from-brand-500/12 via-[#101a35]/80 to-[#0b1226]/90 px-6 py-10 shadow-soft md:px-10 md:py-12 lg:px-12">
+    <article className="mt-12 overflow-hidden rounded-3xl border border-brand-300/24 bg-gradient-to-br from-brand-500/14 via-[#101a35]/82 to-[#0b1226]/94 px-6 py-10 shadow-soft md:px-10 md:py-12 lg:px-12">
       <div className="grid gap-12 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
         <div className="xl:pr-2">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-200/35 bg-brand-500/14 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-brand-100">
-            <Sparkles className="h-3.5 w-3.5" /> Product spotlight
+            <Sparkles className="h-3.5 w-3.5" /> {copy.productSpotlight}
           </div>
-          <p className="mt-3 text-sm text-brand-100/90">Byte Ledger is live in production and available now.</p>
+          <p className="mt-3 text-sm text-brand-100/90">{copy.liveNow}</p>
 
           <div className="mt-7 text-xs uppercase tracking-[0.3em] text-neutral-300">{project.tag}</div>
           <h3 className="mt-3 text-3xl font-semibold md:text-4xl">{project.title}</h3>
@@ -288,17 +379,17 @@ function FeaturedProject({
             >
               <span className="relative">{ctaLabel}</span> <ArrowUpRight className="h-4 w-4" />
             </Link>
-            <Link href={PRIMARY_CTA.href} className={CTA_STYLES.secondary}>
-              {PRIMARY_CTA.label}
+            <Link href={ctas.primary.href} className={CTA_STYLES.secondary}>
+              {ctas.primary.label}
             </Link>
           </div>
 
           <button
             onClick={() => onOpenGallery(project.id, index)}
             className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-200 hover:text-brand-100"
-            aria-label={`Open gallery of ${project.title}`}
+            aria-label={`${copy.openGallery} ${project.title}`}
           >
-            <ImagesIcon className="h-4 w-4" /> Open full gallery ({project.images.length})
+            <ImagesIcon className="h-4 w-4" /> {copy.openFullGallery} ({project.images.length})
           </button>
         </div>
 
@@ -374,19 +465,22 @@ function ProjectCard({
   order,
   onOpenGallery,
   motion,
+  locale,
 }: {
   project: Project
   order: number
   onOpenGallery: (projectId: string, index: number) => void
   motion: MotionProfile
+  locale: Locale
 }) {
-  const ctaLabel = project.cta ?? 'View project'
+  const copy = SECTION_COPY[locale]
+  const ctaLabel = project.cta ?? copy.viewProject
   const rotateMs = motion.isMobile ? 6400 : 9400
   const initialDelay = (motion.isMobile ? 1200 : 2200) + order * (motion.isMobile ? 480 : 760)
   const { index, setIndex, pause, resume } = useAutoRotate(project.images.length, rotateMs, initialDelay, motion.reducedMotion)
 
   return (
-    <article className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.02] shadow-soft">
+    <article className="group relative overflow-hidden rounded-3xl border border-white/12 bg-gradient-to-b from-white/[0.09] to-white/[0.03] shadow-soft">
       <figure
         className="relative aspect-[16/10] overflow-hidden bg-neutral-950/90"
         onMouseEnter={pause}

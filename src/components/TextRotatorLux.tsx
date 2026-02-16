@@ -53,7 +53,7 @@ export default function TextRotatorLux({
         <span
             onMouseEnter={onEnter}
             onMouseLeave={onLeave}
-            className={`relative inline-block h-[1.15em] overflow-hidden align-top ${className}`}
+            className={`relative inline-flex min-h-[1.3em] items-center overflow-hidden align-middle ${className}`}
             role="status"
             aria-live="polite"
         >
@@ -79,7 +79,7 @@ export default function TextRotatorLux({
                 letterSpacing: reduce ? '0em' : '0.01em',
             }}
             transition={{ duration: dur, ease }}
-            className="relative inline-block"
+            className="relative inline-flex items-center leading-[1.15] pb-[0.04em]"
         >
           {items[i]}
 

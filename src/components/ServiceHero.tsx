@@ -73,16 +73,16 @@ export default function ServiceHero({
                 </div>
             )}
 
-            {/* Warm aurora */}
+            {/* Cool aurora */}
             <motion.div
                 aria-hidden
-                className="absolute -top-24 right-10 -z-10 h-72 w-72 rounded-full bg-gradient-to-br from-brand-500/30 via-orange-500/20 to-amber-400/20 blur-3xl"
+                className="absolute -top-24 right-10 -z-10 h-72 w-72 rounded-full bg-gradient-to-br from-brand-500/28 via-cyan-400/18 to-fuchsia-400/14 blur-3xl"
                 animate={{ x: [0, 14, -10, 0], y: [0, 10, -12, 0] }}
                 transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
             />
             <motion.div
                 aria-hidden
-                className="absolute -bottom-16 left-8 -z-10 h-80 w-80 rounded-full bg-gradient-to-tr from-amber-400/20 via-brand-500/20 to-orange-500/20 blur-3xl"
+                className="absolute -bottom-16 left-8 -z-10 h-80 w-80 rounded-full bg-gradient-to-tr from-fuchsia-400/14 via-brand-500/18 to-cyan-400/16 blur-3xl"
                 animate={{ x: [0, -10, 8, 0], y: [0, -12, 6, 0] }}
                 transition={{ repeat: Infinity, duration: 22, ease: 'linear' }}
             />
